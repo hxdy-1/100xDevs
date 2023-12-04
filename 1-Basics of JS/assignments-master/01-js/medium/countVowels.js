@@ -6,7 +6,28 @@
 */
 
 function countVowels(str) {
-    // Your code here
+	let countOfVowels = 0;
+
+	const caseInsensitiveStr = str.toLowerCase();
+
+	for (let i = 0; i <= caseInsensitiveStr.length; i++) {
+		if (
+			caseInsensitiveStr[i] === "a" ||
+			caseInsensitiveStr[i] === "e" ||
+			caseInsensitiveStr[i] === "i" ||
+			caseInsensitiveStr[i] === "o" ||
+			caseInsensitiveStr[i] === "u"
+		) {
+			countOfVowels++;
+		}
+	}
+
+	// console.log(countOfVowels);
+	return countOfVowels;
 }
+
+// countVowels("four");
+// countVowels("aeiou");
+// countVowels("fly");
 
 module.exports = countVowels;
