@@ -22,7 +22,7 @@ console.log("hello world");
 // 	name: "John Doe",
 // };
 
-// const greetLoger = ({ gender, name }) => {
+// const greetLogger = ({ gender, name }) => {
 // 	if (gender === "female") {
 // 		console.log(`${name} is a good girl and she works at xyz`);
 // 	} else {
@@ -30,8 +30,8 @@ console.log("hello world");
 // 	}
 // };
 
-// greetLoger(person1);
-// greetLoger(person2);
+// greetLogger(person1);
+// greetLogger(person2);
 
 // Run a loop and count till 1000:
 
@@ -77,6 +77,22 @@ console.log("hello world");
 // };
 
 // printBiggestNumber(arrayOfNums);
+
+// Write a program that reverses all the elements of an array:
+
+// const arrayOfNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 23];
+
+// const reverseArray = (arr) => {
+// 	let reversedArr = [];
+
+// 	for (let i = arr.length - 1; i >= 0; i--) {
+// 		reversedArr.push(arr[i]);
+// 	}
+
+// 	return reversedArr;
+// };
+
+// console.log(reverseArray(arrayOfNums));
 
 // write a function that returns sum of two numbers:
 
@@ -143,4 +159,42 @@ console.log("hello world");
 // console.log(arithmetic(6, 8, sum));
 // console.log(arithmetic(6, 8, sub));
 
-//
+// Assignments from the last slide of Week 1.2:
+
+// 1. Create a counter in Javascript (counts down from 30 to 0)
+
+// let count = 0;
+
+// const interval = setInterval(() => {
+// 	console.log(count);
+// 	count++;
+// 	if (count > 30) {
+// 		clearInterval(interval);
+// 	}
+// }, 100);
+
+// 2. Calculate the time it takes between a setTimeout call and the inner function actually running
+
+// const calcTime = () => {
+// 	const timeBefore = new Date();
+
+// 	setTimeout(() => {
+// 		const timeWhenCalled = new Date();
+
+// 		console.log(`${timeWhenCalled - timeBefore} milliseconds`);
+// 	}, 0);
+// };
+
+// calcTime();
+
+// 3. Create a terminal clock (HH:MM:SS)
+
+// setInterval(() => {
+// 	const time = new Date();
+// 	const hours = time.getHours();
+// 	const minutes = time.getMinutes();
+// 	const seconds = time.getSeconds();
+
+// 	console.clear();
+// 	console.log(`${hours}h: ${minutes}m : ${seconds}s`);
+// }, 1000);
