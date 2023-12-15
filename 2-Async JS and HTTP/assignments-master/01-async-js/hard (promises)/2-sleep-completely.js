@@ -5,6 +5,17 @@
  */
 
 function sleep(milliseconds) {
+	const before = new Date();
+
+	for (let i = 0; i < 100000000000; i++) {
+		if (milliseconds === new Date() - before) {
+			break;
+		}
+	}
+
+	return new Promise((resolve, reject) => {
+		resolve();
+	});
 }
 
 module.exports = sleep;
