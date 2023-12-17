@@ -69,7 +69,6 @@ app.put("/todos/:id", (req, res) => {
 	const todoIndex = todos.findIndex((t) => t.id === +req.params.id);
 
 	if (todoIndex < 0 || todoIndex >= todos.length) res.status(404).send();
-	// if (todoIndex === -1) res.status(404).send();
 
 	todos[todoIndex].title = req.body.title;
 	todos[todoIndex].description = req.body.description;
@@ -81,13 +80,11 @@ app.delete("/todos/:id", (req, res) => {
 	const todoIndex = todos.findIndex((t) => t.id === +req.params.id);
 
 	if (todoIndex < 0 || todoIndex >= todos.length) res.status(404).send();
-	// if (todoIndex === -1) res.status(404).send();
 
 	res.status(200).json(todos[todoIndex]);
 	todos.splice(todoIndex, 1);
 });
 
-// for all other routes, return 404
 app.use((req, res, next) => {
 	res.status(404).send();
 });
