@@ -34,7 +34,7 @@ router.post("/courses/:courseId", userMiddleware, async (req, res) => {
 
 		await User.findOneAndUpdate(
 			{ username },
-			{ $set: { purchasedCourses: purchasedCourse } }
+			{ $push: { purchasedCourses: purchasedCourse } }
 		);
 
 		res.status(201).json({ message: "Course purchased successfully" });
@@ -57,3 +57,5 @@ router.get("/purchasedCourses", userMiddleware, async (req, res) => {
 		res.status(500).json({ message: "Failed to get the courses" });
 	}
 });
+
+module.exports = router;
