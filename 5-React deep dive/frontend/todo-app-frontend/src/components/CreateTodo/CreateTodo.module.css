@@ -1,0 +1,44 @@
+.form {
+	background-color: #7f00ff;
+	border: 2px solid #183153;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	/* width: 100%; */
+
+	padding: 2em 2em;
+	margin: 2rem auto;
+
+	gap: 2rem;
+	border-radius: 12px;
+	box-shadow: 0px 5px #183153;
+}
+
+.form input,
+.form textarea {
+	border: 2px solid #183153;
+	box-shadow: 0px 3px #183153;
+	border-radius: 12px;
+	outline: none;
+	width: 20rem;
+
+	padding: 1em 1em;
+
+	font-size: 1rem;
+}
+
+.form button {
+	font-family: inherit;
+	border: 2px solid #183153;
+	box-shadow: 0px 3px #183153;
+	border-radius: 12px;
+
+	background-color: #ffe505;
+
+	padding: 0.9em 3em;
+	font-size: 1rem;
+
+	cursor: pointer;
+}

@@ -1,0 +1,41 @@
+.card-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.card {
+	background-color: #b197fc;
+	padding: 2em 4em;
+
+	border: 2px solid #183153;
+	box-shadow: 0px 3px #183153;
+	border-radius: 12px;
+
+	display: flex;
+	flex-direction: column;
+	/* text-align: center; */
+	align-items: center;
+
+	gap: 1rem;
+}
+
+.card h3 {
+	font-size: 2rem;
+	margin: 0;
+}
+
+.card button {
+	font-family: inherit;
+	border: 2px solid #183153;
+	box-shadow: 0px 3px #183153;
+	border-radius: 12px;
+
+	background-color: #ffe505;
+
+	padding: 0.6em 2.2em;
+	font-size: 1rem;
+	width: 12rem;
+
+	cursor: pointer;
+}
