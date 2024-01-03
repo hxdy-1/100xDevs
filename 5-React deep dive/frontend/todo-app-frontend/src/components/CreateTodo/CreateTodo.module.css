@@ -27,6 +27,7 @@
 	padding: 1em 1em;
 
 	font-size: 1rem;
+	font-family: inherit;
 }
 
 .form button {
