@@ -3,6 +3,9 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const jwtPassword = "123456";
 
+const app = express();
+app.use(express.json());
+
 // mongoose.connect("mongodb+srv://hadimomin02:whatever890@cluster0.gdp0v0s.mongodb.net/100xDevsUSERS");
 
 const User = mongoose.model("User", {
@@ -10,9 +13,6 @@ const User = mongoose.model("User", {
 	username: String,
 	password: String,
 });
-
-const app = express();
-app.use(express.json());
 
 function userExists(username, password) {
 	// should check in the database
