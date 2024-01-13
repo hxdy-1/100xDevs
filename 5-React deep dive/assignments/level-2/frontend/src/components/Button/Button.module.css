@@ -1,0 +1,23 @@
+.btn button {
+	width: fit-content;
+
+	padding: 1em 2em;
+	font-weight: bold;
+	color: white;
+
+	background-color: black;
+	border-radius: 12px;
+	border: none;
+	box-shadow: 2px -2px 2px aquamarine, -2px 2px 2px red;
+	cursor: pointer;
+	font-size: 1rem;
+
+	margin-bottom: 4rem;
+	transition: all 200ms ease-out;
+}
+
+.btn button:hover {
+	box-shadow: none;
+	background-color: darkslategray;
+	transform: scale(0.99);
+}

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card/Card";
 import CardForm from "./components/CardForm/CardForm";
+import Button from "./components/Button/Button";
 
 function App() {
+	const [showForm, setShowForm] = useState(false);
 	const [cards, setCards] = useState();
 
 	useEffect(() => {
@@ -28,7 +30,12 @@ function App() {
 
 	return (
 		<>
-			<CardForm setCards={setCards} />
+			{showForm ? (
+				<CardForm setCards={setCards} />
+			) : (
+				<Button setShowForm={setShowForm} />
+			)}
+
 			<div className="card-container">
 				{cards?.map((card) => (
 					<Card

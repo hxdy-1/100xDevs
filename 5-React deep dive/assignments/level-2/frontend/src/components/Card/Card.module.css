@@ -9,12 +9,12 @@
 	margin-bottom: 2rem;
 
 	border-radius: 18px;
-	box-shadow: 10px -10px 25px aquamarine, -10px 10px 25px #ff0000;
+	box-shadow: 5px -5px 10px aquamarine, -5px 5px 10px #ff0000;
 	transition: all 200ms ease-out;
 }
 
 .card:hover {
-	box-shadow: 10px -10px 25px red, -10px 10px 25px aquamarine;
+	box-shadow: 5px -5px 10px red, -5px 5px 10px aquamarine;
 }
 
 .card h2 {
