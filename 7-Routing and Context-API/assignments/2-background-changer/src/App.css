@@ -1,0 +1,68 @@
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.ColorPicker {
+	position: fixed;
+	bottom: 5%;
+	left: 25%;
+	padding: 0.5em 0.5em;
+
+	border-radius: 12px;
+
+	display: flex;
+	/* width: 100%; */
+	gap: 2rem;
+
+	box-shadow: -15px 15px 30px #a8a8a8, 15px -15px 30px #ffffff;
+}
+
+.ColorPicker button {
+	border-radius: 12px;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+
+	border: none;
+
+	padding: 0.25em 0.75em;
+}
+
+.ColorPicker button:nth-child(1) {
+	background-color: violet;
+}
+
+.ColorPicker button:nth-child(2) {
+	background-color: indigo;
+	color: white;
+}
+
+.ColorPicker button:nth-child(3) {
+	background-color: blue;
+	color: white;
+}
+
+.ColorPicker button:nth-child(4) {
+	background-color: green;
+	color: white;
+}
+
+.ColorPicker button:nth-child(5) {
+	background-color: yellow;
+}
+
+.ColorPicker button:nth-child(6) {
+	background-color: orange;
+}
+
+.ColorPicker button:nth-child(7) {
+	background-color: red;
+}
+
+.ColorPicker button:last-child {
+	background-color: white;
+	border: 1px solid black;
+}
