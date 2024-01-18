@@ -1,8 +1,13 @@
 #root {
-	max-width: 1280px;
+	/* max-width: 1280px; */
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
+	height: 55vh;
+	width: 80%;
+	border-radius: 12px;
+
+	box-shadow: -15px 15px 30px #a8a8a8, 15px -15px 30px #ffffff;
 }
 
 .ColorPicker {
@@ -14,10 +19,11 @@
 	border-radius: 12px;
 
 	display: flex;
-	/* width: 100%; */
 	gap: 2rem;
 
 	box-shadow: -15px 15px 30px #a8a8a8, 15px -15px 30px #ffffff;
+
+	transition: all 100ms ease-out;
 }
 
 .ColorPicker button {
@@ -60,6 +66,7 @@
 
 .ColorPicker button:nth-child(7) {
 	background-color: red;
+	color: white;
 }
 
 .ColorPicker button:last-child {
