@@ -10,10 +10,10 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const router = express.Router();
 
 const userSignupBody = z.object({
-	username: z.string,
-	password: z.string,
-	firstName: z.string,
-	lastName: z.string,
+	username: z.string(),
+	password: z.string(),
+	firstName: z.string(),
+	lastName: z.string(),
 });
 
 router.post("/signup", async (req, res) => {
@@ -23,7 +23,7 @@ router.post("/signup", async (req, res) => {
 
 	if (!success) {
 		return res.status(411).json({
-			message: "Email already taken / Incorrect inputs",
+			message: "Email/username already taken or incorrect inputs",
 		});
 	}
 
@@ -31,7 +31,7 @@ router.post("/signup", async (req, res) => {
 
 	if (userExists) {
 		return res.status(411).json({
-			message: "Email already taken / Incorrect inputs",
+			message: "Email/username already taken or incorrect inputs",
 		});
 	}
 
@@ -57,8 +57,8 @@ router.post("/signup", async (req, res) => {
 
 // Sign-in route:
 const userSigninBody = z.object({
-	username: z.string,
-	password: z.string,
+	username: z.string(),
+	password: z.string(),
 });
 
 router.post("/signin", async (req, res) => {
@@ -67,7 +67,7 @@ router.post("/signin", async (req, res) => {
 
 	if (!success) {
 		return res.status(411).json({
-			message: "Email already taken / Incorrect inputs",
+			message: "Email/username already taken or incorrect inputs",
 		});
 	}
 
@@ -111,7 +111,7 @@ router.put("/", middleware, async (req, res) => {
 		});
 	}
 
-	await User.updateOne(req.userId, req.body);
+	await User.updateOne({ _id: req.userId }, req.body);
 
 	res.json({
 		message: "Updated successfully",
@@ -126,11 +126,19 @@ router.get("/bulk", async (req, res) => {
 			{
 				firstName: {
 					$regex: filter,
+					$options: "i",
 				},
 			},
 			{
 				lastName: {
 					$regex: filter,
+					$options: "i",
+				},
+			},
+			{
+				username: {
+					$regex: filter,
+					$options: "i",
 				},
 			},
 		],

@@ -15,13 +15,17 @@ const middleware = async (req, res, next) => {
 
 	const token = authHeader.split(" ")[1];
 
-	const decoded = jwt.verify(token, JWT_SECRET, (err) => {
-		if (err) res.status(403).json({ message: "Invalid token" });
-	});
+	try {
+		const decoded = jwt.verify(token, JWT_SECRET);
 
-	req.userId = decoded.userId;
+		// console.log("decoded token: ", decoded);
+		req.userId = decoded.userId;
+		// console.log("req.userId", req.userId);
 
-	next();
+		next();
+	} catch (err) {
+		return res.status(403).json({ message: "Invalid token" });
+	}
 };
 
 module.exports = middleware;
