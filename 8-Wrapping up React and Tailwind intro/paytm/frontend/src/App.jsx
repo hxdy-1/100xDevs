@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+// import { action as loginAction } from "./pages/LoginPage";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const SignupPage = lazy(() => import("./pages/SignupPage"));
@@ -22,7 +23,11 @@ function App() {
 				}
 			>
 				<Routes>
-					<Route path="/" element={<LoginPage />} />
+					<Route
+						path="/"
+						element={<LoginPage />}
+						// action={loginAction}
+					/>
 					<Route path="/signup" element={<SignupPage />} />
 					<Route path="/dashboard" element={<DashboardPage />} />
 				</Routes>

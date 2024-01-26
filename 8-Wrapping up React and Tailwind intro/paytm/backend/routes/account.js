@@ -1,6 +1,6 @@
 const express = require("express");
 const middleware = require("../middleware");
-const { Account } = require("../db/db");
+const { Account, User } = require("../db/db");
 const router = express.Router();
 const mongoose = require("mongoose");
 
@@ -9,7 +9,13 @@ router.get("/balance", middleware, async (req, res) => {
 		userId: req.userId,
 	});
 
+	const users = await User.find();
+	const usersArr = users.filter(
+		(user) => user._id.toString() !== req.userId.toString()
+	);
+
 	res.json({
+		usersArr,
 		balance,
 	});
 });
