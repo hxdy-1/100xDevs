@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Card from "../utils/Card";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom";
 import axios from "axios";
 
 const inputClasses =
@@ -10,7 +10,6 @@ const buttonClasses =
 	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-stone-300 active:translate-y-0.5 shadow-none";
 
 const SignupForm = () => {
-	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -18,46 +17,7 @@ const SignupForm = () => {
 		password: "",
 	});
 
-	const handleSubmit = useCallback(
-		async (e) => {
-			e.preventDefault();
-			// console.log("First name:", formData.firstName);
-			// console.log("Last name:", formData.lastName);
-			// console.log("Username:", formData.username);
-			// console.log("Password:", formData.password);
-
-			try {
-				const { data } = await axios.post(
-					"http://localhost:3000/api/v1/user/signup",
-					{
-						firstName: formData.firstName,
-						lastName: formData.lastName,
-						username: formData.username,
-						password: formData.password,
-					}
-				);
-
-				console.log(data.message);
-				console.log(data.token);
-
-				setFormData({
-					username: "",
-					password: "",
-					firstName: "",
-					lastName: "",
-				});
-
-				localStorage.clear();
-				localStorage.setItem("token", data.token);
-
-				navigate("/dashboard");
-			} catch (error) {
-				console.log(error);
-				console.log(error.response.data.message);
-			}
-		},
-		[formData]
-	);
+	const actionData = useActionData();
 
 	const handleChange = useCallback((e) => {
 		const { name, value } = e.target;
@@ -68,19 +28,27 @@ const SignupForm = () => {
 	}, []);
 
 	return (
-		<Card customStyles="my-6">
+		<Card customStyles="my-8">
 			<h1 className="font-sans text-4xl font-bold">Signup</h1>
-			<p className="font-sans font-semibold text-stone-400">
-				Enter your information to create an account
-			</p>
-			<form
-				onSubmit={handleSubmit}
+			{!actionData ? (
+				<p className="font-sans font-semibold text-stone-400">
+					Enter your information to create an account
+				</p>
+			) : (
+				<p className="font-sans font-semibold text-red-500">
+					{actionData}
+				</p>
+			)}
+			<Form
+				method="post"
+				action="/signup"
 				className="font-semibold w-full font-sans text-left flex flex-col gap-4"
 			>
 				<label htmlFor="firstName" className="w-full">
 					First Name
 				</label>
 				<input
+					required
 					onChange={handleChange}
 					type="text"
 					id="firstName"
@@ -93,6 +61,7 @@ const SignupForm = () => {
 					Last Name
 				</label>
 				<input
+					required
 					onChange={handleChange}
 					type="text"
 					id="lastName"
@@ -105,26 +74,30 @@ const SignupForm = () => {
 					Username
 				</label>
 				<input
+					required
 					onChange={handleChange}
 					type="text"
 					id="username"
 					name="username"
 					value={formData.username}
 					className={`${inputClasses}`}
+					placeholder="JohnDoe123"
 				/>
 				<label htmlFor="password" className="w-full">
 					Password
 				</label>
 				<input
+					required
 					onChange={handleChange}
 					type="password"
 					id="password"
 					name="password"
 					value={formData.password}
 					className={`${inputClasses}`}
+					placeholder="Create a strong password"
 				/>
 				<button className={`${buttonClasses}`}>Signup</button>
-			</form>
+			</Form>
 			<p>
 				Already have an account?{" "}
 				<Link className="underline underline-offset-2" to="/">

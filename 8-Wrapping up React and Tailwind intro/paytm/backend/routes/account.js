@@ -14,9 +14,12 @@ router.get("/balance", middleware, async (req, res) => {
 		(user) => user._id.toString() !== req.userId.toString()
 	);
 
+	const { username } = await User.findOne({ _id: req.userId });
+
 	res.json({
-		usersArr,
 		balance,
+		username,
+		usersArr,
 	});
 });
 

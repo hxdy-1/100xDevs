@@ -23,7 +23,7 @@ router.post("/signup", async (req, res) => {
 
 	if (!success) {
 		return res.status(411).json({
-			message: "Username already taken or incorrect inputs",
+			message: "Username already taken or Incorrect inputs",
 		});
 	}
 
@@ -31,7 +31,7 @@ router.post("/signup", async (req, res) => {
 
 	if (userExists) {
 		return res.status(411).json({
-			message: "Username already taken or incorrect inputs",
+			message: "Username already taken or Incorrect inputs",
 		});
 	}
 
@@ -67,7 +67,7 @@ router.post("/signin", async (req, res) => {
 
 	if (!success) {
 		return res.status(411).json({
-			message: "Username already taken or incorrect inputs",
+			message: "Incorrect credentials, double check, try again",
 		});
 	}
 
@@ -91,7 +91,7 @@ router.post("/signin", async (req, res) => {
 	}
 
 	res.status(411).json({
-		message: "Username already taken or incorrect inputs",
+		message: "Incorrect credentials, double check, try again",
 	});
 });
 
