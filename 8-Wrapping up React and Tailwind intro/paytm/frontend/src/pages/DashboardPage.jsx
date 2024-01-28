@@ -1,28 +1,34 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Navbar from "../components/Navbar";
 import MainDashboard from "../components/MainDashboard";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { Await, useLoaderData, defer } from "react-router-dom";
 
 const DashboardPage = () => {
-	const loaderData = useLoaderData();
-
-	console.log("loaderData: ", loaderData);
+	const { data } = useLoaderData();
 
 	return (
 		<>
-			<Navbar username={loaderData.username} />
-			<MainDashboard
-				balance={loaderData?.balance}
-				users={loaderData?.usersArr}
-			/>
+			<Suspense>
+				<Await resolve={data}>
+					{(data) => (
+						<>
+							<Navbar username={data.username} />
+							<MainDashboard
+								balance={data?.balance}
+								users={data.usersArr}
+							/>
+						</>
+					)}
+				</Await>
+			</Suspense>
 		</>
 	);
 };
 
 export default DashboardPage;
 
-export const loader = async () => {
+export const loadData = async () => {
 	const token = localStorage.getItem("token");
 	// console.log(token);
 
@@ -42,4 +48,10 @@ export const loader = async () => {
 	} catch (error) {
 		return token;
 	}
+};
+
+export const loader = () => {
+	return defer({
+		data: loadData(),
+	});
 };
