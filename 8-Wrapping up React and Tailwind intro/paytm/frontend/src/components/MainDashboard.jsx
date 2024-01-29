@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import SearchInput from "./SearchInput";
 import UsersList from "./UsersList";
 import axios from "axios";
+import Modal from "../utils/Modal";
 
 const MainDashboard = ({ balance, users }) => {
 	const [initialUsers, setInitialUsers] = useState(users);
 	const [allUsers, setAllUsers] = useState(users);
 	const [filter, setFilter] = useState("");
-
 	// console.log(filter);
 
 	useEffect(() => {

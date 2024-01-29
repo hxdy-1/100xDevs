@@ -3,13 +3,27 @@ import Navbar from "../components/Navbar";
 import MainDashboard from "../components/MainDashboard";
 import axios from "axios";
 import { Await, useLoaderData, defer } from "react-router-dom";
+import Modal from "../utils/Modal";
 
 const DashboardPage = () => {
 	const { data } = useLoaderData();
 
 	return (
 		<>
-			<Suspense>
+			<Suspense
+				fallback={
+					<h1
+						style={{
+							textAlign: "center",
+							fontWeight: "bolder",
+							fontSize: "1.2rem",
+							marginTop: "10rem",
+						}}
+					>
+						Loading...
+					</h1>
+				}
+			>
 				<Await resolve={data}>
 					{(data) => (
 						<>

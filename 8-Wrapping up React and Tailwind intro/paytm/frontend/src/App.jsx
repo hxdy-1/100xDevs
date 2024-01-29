@@ -20,6 +20,7 @@ const router = createBrowserRouter([
 							textAlign: "center",
 							fontWeight: "bolder",
 							fontSize: "1.2rem",
+							marginTop: "10rem",
 						}}
 					>
 						Loading...
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
 							textAlign: "center",
 							fontWeight: "bolder",
 							fontSize: "1.2rem",
+							marginTop: "10rem",
 						}}
 					>
 						Loading...
@@ -62,6 +64,7 @@ const router = createBrowserRouter([
 							textAlign: "center",
 							fontWeight: "bolder",
 							fontSize: "1.2rem",
+							marginTop: "10rem",
 						}}
 					>
 						Loading...
