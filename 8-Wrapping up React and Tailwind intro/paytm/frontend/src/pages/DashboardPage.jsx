@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import MainDashboard from "../components/MainDashboard";
 import axios from "axios";
 import { Await, useLoaderData, defer } from "react-router-dom";
-import Modal from "../utils/Modal";
 
 const DashboardPage = () => {
 	const { data } = useLoaderData();

@@ -8,8 +8,8 @@ const Navbar = ({ username }) => {
 				<h2 className="font-semibold">
 					Hello, {`${username || "Hady"}`}
 				</h2>
-				<div className="bg-slate-50 text-black font-bold rounded-full w-10 h-10 flex items-center justify-center cursor-pointer">{`${
-					username?.[0] || "H"
+				<div className="bg-slate-50 text-black font-bold rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:bg-emerald-400">{`${
+					username?.[0].toUpperCase() || "H"
 				}`}</div>
 			</div>
 		</nav>

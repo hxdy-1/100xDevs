@@ -1,13 +1,12 @@
 import React, { useCallback, useState } from "react";
 import Card from "../utils/Card";
-import { Form, Link, useActionData } from "react-router-dom";
-import axios from "axios";
+import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 
 const inputClasses =
 	"w-full py-1.5 px-2 rounded outline-none focus:outline-stone-500 -outline-offset-2";
 
 const buttonClasses =
-	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-stone-300 active:translate-y-0.5 shadow-none";
+	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-400 active:translate-y-0.5 shadow-none";
 
 const SignupForm = () => {
 	const [formData, setFormData] = useState({
@@ -18,6 +17,8 @@ const SignupForm = () => {
 	});
 
 	const actionData = useActionData();
+	const navigation = useNavigation();
+	const signingIn = navigation.state === "submitting";
 
 	const handleChange = useCallback((e) => {
 		const { name, value } = e.target;
@@ -96,7 +97,9 @@ const SignupForm = () => {
 					className={`${inputClasses}`}
 					placeholder="Create a strong password"
 				/>
-				<button className={`${buttonClasses}`}>Signup</button>
+				<button className={`${buttonClasses}`}>
+					{!signingIn ? "Signup" : "Signing Up..."}
+				</button>
 			</Form>
 			<p>
 				Already have an account?{" "}

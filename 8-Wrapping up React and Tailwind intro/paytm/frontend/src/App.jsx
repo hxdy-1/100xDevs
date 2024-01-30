@@ -3,6 +3,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { action as loginAction } from "./pages/LoginPage";
 import { action as signupAction } from "./pages/SignupPage";
 import { loader as dashboardLoader } from "./pages/DashboardPage";
+import { action as sendAction } from "./pages/SendPage";
+import SendPage from "./pages/SendPage";
 
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const SignupPage = lazy(() => import("./pages/SignupPage"));
@@ -72,6 +74,29 @@ const router = createBrowserRouter([
 				}
 			>
 				<DashboardPage />
+			</Suspense>
+		),
+	},
+	{
+		path: "/send",
+		// loader: dashboardLoader,
+		action: sendAction,
+		element: (
+			<Suspense
+				fallback={
+					<h1
+						style={{
+							textAlign: "center",
+							fontWeight: "bolder",
+							fontSize: "1.2rem",
+							marginTop: "10rem",
+						}}
+					>
+						Loading...
+					</h1>
+				}
+			>
+				<SendPage />
 			</Suspense>
 		),
 	},

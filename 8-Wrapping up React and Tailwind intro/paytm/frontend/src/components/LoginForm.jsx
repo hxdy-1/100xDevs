@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
 import Card from "../utils/Card";
-import { Form, Link, useActionData } from "react-router-dom";
+import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 
 const inputClasses =
 	"w-full py-1.5 px-2 rounded outline-none focus:outline-stone-500 -outline-offset-2";
 
 const buttonClasses =
-	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-stone-300 active:translate-y-0.5 shadow-none";
+	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-400 active:translate-y-0.5 shadow-none";
 
 const LoginForm = () => {
 	const [formData, setFormData] = useState({
@@ -15,6 +15,9 @@ const LoginForm = () => {
 	});
 
 	const actionData = useActionData();
+	const navigation = useNavigation();
+
+	const loggingIn = navigation.state === "submitting";
 	// console.log(actionData);
 	// if (actionData) console.log("actionData is truthy");
 
@@ -69,7 +72,9 @@ const LoginForm = () => {
 					placeholder="Enter your password"
 					required
 				/>
-				<button className={`${buttonClasses}`}>Login</button>
+				<button className={`${buttonClasses}`}>
+					{!loggingIn ? "Login" : "Logging In..."}
+				</button>
 			</Form>
 			<p>
 				Don't have an account?{" "}

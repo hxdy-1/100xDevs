@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ListItem from "./ListItem";
-import Modal from "../utils/Modal";
 
 const UsersList = ({ users }) => {
 	// console.log(allUsers);

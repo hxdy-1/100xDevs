@@ -43,7 +43,7 @@ router.post("/signup", async (req, res) => {
 	});
 
 	const userId = user._id;
-	const balance = Math.floor(Math.random() * (10000 - 1 + 1)) + 1;
+	const balance = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
 
 	await Account.create({
 		userId,
