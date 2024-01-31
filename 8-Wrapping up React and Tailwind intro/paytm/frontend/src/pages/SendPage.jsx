@@ -37,7 +37,7 @@ export const action = async ({ request }) => {
 		console.log(data.message);
 		return redirect("/dashboard");
 	} catch (error) {
-		console.log(error);
-		return error;
+		console.log(error.response.data.message);
+		return error.response.data.message;
 	}
 };

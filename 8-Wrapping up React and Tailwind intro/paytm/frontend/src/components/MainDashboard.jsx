@@ -7,14 +7,16 @@ const MainDashboard = ({ balance, users }) => {
 	const [initialUsers, setInitialUsers] = useState(users);
 	const [allUsers, setAllUsers] = useState(users);
 	const [filter, setFilter] = useState("");
-	// console.log(filter);
+	// console.log(filter?.length);
 
 	useEffect(() => {
 		axios
 			.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
 			.then((response) => {
 				if (filter.length === 0) {
+					// console.log(filter?.length);
 					setInitialUsers(initialUsers);
+					setAllUsers(initialUsers);
 				} else {
 					// console.log(response.data);
 					setAllUsers(response.data);

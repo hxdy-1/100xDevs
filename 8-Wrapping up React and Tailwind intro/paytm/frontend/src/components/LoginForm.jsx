@@ -6,7 +6,7 @@ const inputClasses =
 	"w-full py-1.5 px-2 rounded outline-none focus:outline-stone-500 -outline-offset-2";
 
 const buttonClasses =
-	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-400 active:translate-y-0.5 shadow-none";
+	"mt-4 bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-500 active:translate-y-0.5 shadow-none";
 
 const LoginForm = () => {
 	const [formData, setFormData] = useState({

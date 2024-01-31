@@ -1,4 +1,4 @@
-import { json, redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import axios from "axios";
 
@@ -25,8 +25,7 @@ export const action = async ({ request }) => {
 			}
 		);
 
-		console.log(data.token);
-
+		// console.log(data.token);
 		localStorage.clear();
 		localStorage.setItem("token", data.token);
 
