@@ -9,7 +9,7 @@ const Navbar = ({ username }) => {
 			<div className="flex gap-6 items-center">
 				<h2 className="font-semibold">Hello, {username}</h2>
 				<div
-					onClick={() => navigate("/profile")}
+					onClick={() => navigate(`/profile?username=${username}`)}
 					className="bg-slate-50 text-black font-bold rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all hover:bg-emerald-400"
 				>{`${username?.[0].toUpperCase() || "H"}`}</div>
 			</div>

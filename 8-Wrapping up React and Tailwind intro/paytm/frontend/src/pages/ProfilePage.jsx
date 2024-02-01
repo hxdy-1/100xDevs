@@ -4,12 +4,14 @@ import Card from "../utils/Card";
 import UpdateForm from "../components/UpdateForm";
 import axios from "axios";
 import { redirect } from "react-router-dom";
+import DeleteUser from "../components/DeleteUser";
 
 const ProfilePage = () => {
 	return (
 		<Card>
 			<UpdateForm />
 			<Logout />
+			<DeleteUser />
 		</Card>
 	);
 };

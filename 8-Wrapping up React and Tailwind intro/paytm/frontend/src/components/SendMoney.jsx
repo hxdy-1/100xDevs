@@ -49,7 +49,7 @@ const SendMoney = () => {
 					min="1"
 					placeholder="Positive Integer"
 				/>
-				<button className="bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-300 active:translate-y-0.5 shadow-none">
+				<button className="bg-white font-bold w-full text-black rounded-md py-2 transition-all transform hover:bg-emerald-500 active:translate-y-0.5 shadow-none">
 					{!sendingMoney ? "Initiate Transfer" : "Sending..."}
 				</button>
 			</Form>

@@ -147,4 +147,32 @@ router.get("/bulk", async (req, res) => {
 	res.json(users);
 });
 
+const deleteBody = z.string();
+
+router.delete("/delete", middleware, async (req, res) => {
+	// const username = req.body.username;
+	console.log("username: ", username);
+
+	const { success } = deleteBody.safeParse(username);
+	if (!success) {
+		res.status(400).json({
+			message: "Error while deleting account due to invalid username",
+		});
+	}
+
+	const userExists = await User.findOne({ username });
+	// console.log(userExists);
+
+	if (!userExists) {
+		res.status(404).json({
+			message: `No account found with username: ${username}`,
+		});
+	}
+
+	await User.deleteOne({ username });
+	await Account.deleteOne({ userId: userExists._id });
+
+	res.json({ message: "Account deleted successfully" });
+});
+
 module.exports = router;
