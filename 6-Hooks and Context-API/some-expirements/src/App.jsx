@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import HeaderWithButtons from "./components/HeaderWithButtons";
 import Todo from "./components/Todo";
 import Wrapper from "./components/Wrapper";
+import axios from "axios";
 
 let id = 4;
 
@@ -28,21 +29,40 @@ function App() {
 	// ]);
 
 	const [todosArr, setTodosArr] = useState([]);
-	useEffect(() => {
-		setInterval(() => {
-			fetch("https://sum-server.100xdevs.com/todos")
-				.then((res) => res.json())
-				.then((result) => setTodosArr(result.todos));
-		}, 5000);
-		// fetch("https://sum-server.100xdevs.com/todos")
-		// 	.then((res) => res.json())
-		// 	.then((result) => setTodosArr(result.todos));
-	}, []);
+	// useEffect(() => {
+	// 	setInterval(() => {
+	// fetch("https://sum-server.100xdevs.com/todos")
+	// 	.then((res) => res.json())
+	// 	.then((result) => setTodosArr(result.todos));
+
+	// 	axios
+	// 		.get("https://sum-server.100xdevs.com/todos")
+	// 		.then((response) => {
+	// 			setTodosArr(response.data.todos);
+	// 		});
+	// }, 5000);
+
+	// fetch("https://sum-server.100xdevs.com/todos")
+	// 	.then((res) => res.json())
+	// 	.then((result) => setTodosArr(result.todos));
+
+	// }, []);
 	// }, [todosArr]);
 	return (
+		// <div>
+		// 	{todosArr.map((todo) => (
+		// 		<Todo title={todo.title} description={todo.description} />
+		// 	))}
+		// </div>
 		<div>
-			{/* <HeaderWithButtons /> */}
-			{/* <button
+			<Todo id={1} />
+		</div>
+	);
+	{
+		/* <HeaderWithButtons /> */
+	}
+	{
+		/* <button
 				onClick={(e) => {
 					setTitle(Math.floor(Math.random() * 100));
 				}}
@@ -52,9 +72,11 @@ function App() {
 			<Header title={title} />
 			<Header title={"Hadi"} />
 			<Header title={"Hadi"} />
-			<Header title={"Hadi"} /> */}
+			<Header title={"Hadi"} /> */
+	}
 
-			{/* <button
+	{
+		/* <button
 				onClick={() => {
 					setTodoArr([
 						...todoArr,
@@ -79,15 +101,13 @@ function App() {
 					description={todo.description}
 					id={todo.id}
 				/>
-			))} */}
-			{/* <Wrapper>
+			))} */
+	}
+	{
+		/* <Wrapper>
 				<h1>Some title</h1>
-			</Wrapper> */}
-			{todosArr.map((todo) => (
-				<Todo title={todo.title} description={todo.description} />
-			))}
-		</div>
-	);
+			</Wrapper> */
+	}
 }
 
 export default App;
